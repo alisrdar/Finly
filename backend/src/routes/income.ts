@@ -3,18 +3,18 @@ import { protect } from "../middleware/authMiddleware.js";
 import {
     addIncome,
     getAllIncome, 
-    delteIncome, 
+    deleteIncome, 
     downloadIncomeExcel
 } from "../controllers/incomeController.js";
 
-const router = Router();
+const IncomeRouter =  Router();
 
-router.post("/income", protect, addIncome)
+IncomeRouter.post("/income", protect, addIncome)
 
-router.get("/income", protect, getAllIncome)
+IncomeRouter.get("/income", protect, getAllIncome)
 
-router.delete("/income/:id", protect, delteIncome)
+IncomeRouter.delete("/income/:id", protect, deleteIncome)
 
-router.get("/income/download", protect, downloadIncomeExcel)
+IncomeRouter.get("/income/download", protect, downloadIncomeExcel)
 
-export default router
+export default IncomeRouter

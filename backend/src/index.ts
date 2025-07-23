@@ -4,6 +4,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from "./config/dbCon.js";
 import router from "./routes/auth.js";
+import IncomeRouter from "./routes/income.js";
+
 
 dotenv.config();
 
@@ -22,7 +24,8 @@ app.use(
 app.use(express.json());
 
 // routes
-app.use('/api/auth', router);
+app.use('/api/v1/auth', router);
+app.use('/api/v1', IncomeRouter);
 
 connectDB();
 

@@ -8,7 +8,8 @@ export interface InfIncome extends Document {
     amount: number
     category: string
     date: Date
-    user: mongoose.Schema.Types.ObjectId
+    user: mongoose.Schema.Types.ObjectId,
+    icon: string
 }
 
 const IncomeSchema: Schema<InfIncome> = new Schema({
@@ -26,13 +27,17 @@ const IncomeSchema: Schema<InfIncome> = new Schema({
     },
     date: {
         type: Date,
-        required: false,
         default: Date.now()
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    icon: {
+        type: String
     }
+},{
+    timestamps: true
 })
 
 export default mongoose.model<InfIncome>("Income", IncomeSchema);

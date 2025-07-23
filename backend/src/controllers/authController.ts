@@ -1,15 +1,15 @@
-import { Request, Response } from 'express-serve-static-core'
+import { Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import User, { IUser } from '../models/User.js' //IUser is TS interface
 
 const generateToken = (id: string) => {
-    return jwt.sign({id}, process.env.JWT_SECRET!, { expiresIn: '1hr' })
+    return jwt.sign({ id }, process.env.JWT_SECRET!, { expiresIn: '1hr' })
 }
 
-interface AuthenticatedRequest extends Request {
-  user: IUser;
-}
+// interface AuthenticatedRequest extends Request {
+//   user: IUser;
+// }
 
 
 export const registerUser = async (req: Request, res: Response) => {
@@ -82,19 +82,22 @@ export const loginUser = async (req: Request, res: Response) => {
 }
 export const getUser = async (req: Request, res: Response) => {
     try {
+        if (!req.user) {
+            return res.status(401).json({ message: "Not authenticated" });
+        }
         const user = await User.findById(req.user.id).select("-password");
 
-        if(!user){
-            res.status(400).json({message: "User not found"});
+        if (!user) {
+            res.status(400).json({ message: "User not found" });
         }
         res.status(200).json(user)
     } catch (error) {
         res
-        .status(500)
-        .json({
-            message: "Server error",
-            error
-        })
+            .status(500)
+            .json({
+                message: "Server error",
+                error
+            })
     }
 }
 
