@@ -4,14 +4,14 @@ import { protect } from '../middleware/authMiddleware.js';
 import { upload } from '../middleware/multer.js';
 import { UploadImage } from '../controllers/uploadController.js';
 
-const router = express.Router();
+const authRouter = express.Router();
 
-router.post('/register',registerUser);
+authRouter.post('/register',registerUser);
 
-router.post('/login',loginUser);
+authRouter.post('/login',loginUser);
 
-router.get('/getUser', protect, getUser);
+authRouter.get('/getUser', protect, getUser);
 
-router.post('/upload-image', upload.single('image'), UploadImage );
+authRouter.post('/upload-image', upload.single('image'), UploadImage );
 
-export default router
+export default authRouter
