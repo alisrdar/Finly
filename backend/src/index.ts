@@ -3,9 +3,10 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from "./config/dbCon.js";
-import router from "./routes/auth.js";
-import IncomeRouter from "./routes/income.js";
-
+import authRoutes from "./routes/auth.js";
+import IncomeRoutes from "./routes/income.js";
+import expenseRoutes from "./routes/expense.js";
+import dashboardRoutes from "./routes/dashboardRotes.js";
 
 dotenv.config();
 
@@ -24,8 +25,10 @@ app.use(
 app.use(express.json());
 
 // routes
-app.use('/api/v1/auth', router);
-app.use('/api/v1', IncomeRouter);
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/income', IncomeRoutes);
+app.use('/api/v1/expense', expenseRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 connectDB();
 

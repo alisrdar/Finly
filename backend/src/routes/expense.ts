@@ -7,14 +7,14 @@ import {
     downloadExpenseExcel
 } from "../controllers/expenseController.js";
 
-const expenseRouter =  Router();
+const expenseRoutes =  Router();
 
-expenseRouter.post("/income", protect, addExpense)
+expenseRoutes.post("/", protect, addExpense)
 
-expenseRouter.get("/income", protect, getAllExpense)
+expenseRoutes.get("/", protect, getAllExpense)
 
-expenseRouter.delete("/income/:id", protect, deleteExpense)
+expenseRoutes.delete("/:id", protect, deleteExpense)
 
-expenseRouter.get("/income/download", protect, downloadExpenseExcel)
+expenseRoutes.get("/download", protect, downloadExpenseExcel)
 
-export default expenseRouter
+export default expenseRoutes

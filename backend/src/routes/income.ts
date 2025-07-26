@@ -7,14 +7,14 @@ import {
     downloadIncomeExcel
 } from "../controllers/incomeController.js";
 
-const IncomeRouter =  Router();
+const IncomeRoutes =  Router();
 
-IncomeRouter.post("/income", protect, addIncome)
+IncomeRoutes.post("/", protect, addIncome)
 
-IncomeRouter.get("/income", protect, getAllIncome)
+IncomeRoutes.get("/", protect, getAllIncome)
 
-IncomeRouter.delete("/income/:id", protect, deleteIncome)
+IncomeRoutes.delete("/:id", protect, deleteIncome)
 
-IncomeRouter.get("/income/download", protect, downloadIncomeExcel)
+IncomeRoutes.get("/download", protect, downloadIncomeExcel)
 
-export default IncomeRouter
+export default IncomeRoutes

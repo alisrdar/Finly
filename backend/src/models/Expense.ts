@@ -1,6 +1,15 @@
 import mongoose from "mongoose";
 import { Schema, Document } from "mongoose";
 
+export enum PaymentMethodEnum {
+  Cash = "cash",
+  CreditCard = "credit card",
+  DebitCard = "debit card",
+  UPI = "upi",
+  Easypaise = "easypaise",
+  Other = "other"
+}
+
 interface IExpense extends Document {
     title: string;
     amount: number;
@@ -9,7 +18,7 @@ interface IExpense extends Document {
     user: mongoose.Schema.Types.ObjectId;
     icon: string;
     note: string;
-    paymentMethod: string;
+    paymentMethod: PaymentMethodEnum;
     location: string;
 }
 const ExpenseSchema = new Schema<IExpense>({
@@ -33,11 +42,11 @@ const ExpenseSchema = new Schema<IExpense>({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    icon: { type: String },
+    icon: { type: String, default: "🧾" },
     note: { type: String },
     paymentMethod: { 
         type: String,
-        enum: ['cash', 'credit card', 'debit card', 'upi','easypaise', 'other'] 
+        enum: PaymentMethodEnum
     },
     location: { type: String }
 }, {
