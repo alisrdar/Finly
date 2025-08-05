@@ -4,12 +4,12 @@ import User from "./User.js";
 import { ref } from "process";
 
 export interface InfIncome extends Document {
-    title: string,
-    amount: number
-    category: string
-    date: Date
-    user: mongoose.Schema.Types.ObjectId,
-    icon: string
+    title: string;
+    amount: number;
+    category: string;
+    date: Date;
+    user: mongoose.Schema.Types.ObjectId;
+    icon: string; // represents a category
 }
 
 const IncomeSchema: Schema<InfIncome> = new Schema({
@@ -27,7 +27,7 @@ const IncomeSchema: Schema<InfIncome> = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

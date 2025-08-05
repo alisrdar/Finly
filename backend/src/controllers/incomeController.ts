@@ -19,7 +19,7 @@ export const addIncome = async (req: Request, res: Response) => {
             date: new Date(date),
             icon
         })
-        await newIncome.save();
+        await newIncome.save(); // redundant
 
         res.status(201).json({
             message: "Income added successfully",
