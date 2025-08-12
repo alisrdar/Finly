@@ -1,18 +1,88 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
 
+
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-display: "Poppins";
   --breakpoint-3xl: 1020px;
   --color-primary: #875cf5;
-
 }
-@layer base{
-  html{
-    font-family: var(--font-display);
-  }
-  body{
-    background-color: #fcfbfc;
-    overflow-x: hidden;
-  }
+
+@layer base {
+    html {
+        font-family: var(--font-display);
+    }
+
+    :root {
+        --background: #fafafa;
+        --foreground: #1e293b;
+        --card: #ffffff;
+        --primary: #7c3aed;
+        --primary-foreground: #fafafa;
+        --secondary: #fbbf24;
+        --secondary-foreground: #1e293b;
+        --border: #e2e8f0;
+        --muted: #f1f5f9;
+        --muted-foreground: #64748b;
+        --accent: #f8fafc;
+        --accent-foreground: #0f172a;
+    }
+
+    .dark {
+        --background: #0f172a;
+        --foreground: #ffffff;
+        --card: #1e293b;
+        --primary: #8b5cf6;
+        --primary-foreground: #e2e8f0;
+        --secondary: #fcd34d;
+        --secondary-foreground: #ffffff;
+        --border: #334155;
+        --muted: #1e293b;
+        --muted-foreground: #94a3b8;
+        --accent: #334155;
+        --accent-foreground: #f8fafc;
+    }
+
+    * {
+        border-color: var(--border);
+    }
+
+    /* Single body declaration with all styles */
+    body {
+        font-family: var(--font-display);
+        color: var(--foreground);
+        background: var(--background);
+        overflow-x: hidden;
+        transition: color 0.3s ease, background-color 0.3s ease; /* Smooth theme transitions */
+    }
+
+    /* Your custom utility classes */
+    .bg-background { background-color: var(--background); }
+    .bg-card { background-color: var(--card); }
+    .bg-primary { background-color: var(--primary); }
+    .bg-secondary { background-color: var(--secondary); }
+    .bg-muted { background-color: var(--muted); }
+    .bg-accent { background-color: var(--accent); }
+    
+    .text-foreground { color: var(--foreground); }
+    .text-primary { color: var(--primary); }
+    .text-primary-foreground { color: var(--primary-foreground); }
+    .text-secondary { color: var(--secondary); }
+    .text-secondary-foreground { color: var(--secondary-foreground); }
+    .text-muted-foreground { color: var(--muted-foreground); }
+    .text-accent-foreground { color: var(--accent-foreground); }
+    
+    .border-border { border-color: var(--border); }
+    
+    .hover\:bg-accent:hover { background-color: var(--accent); }
+    .hover\:text-accent-foreground:hover { color: var(--accent-foreground); }
+    
+    .gradient-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    .gradient-background {
+        background: linear-gradient(135deg, var(--background), var(--muted));
+    }
 }
