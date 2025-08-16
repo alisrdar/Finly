@@ -43,9 +43,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setToken(null);
         setUser(null);
     };
+    const clearUser = () => {
+        localStorage.removeItem('token');
+        setToken(null);
+        setUser(null);
+    };
 
     const value = {
         user,
+        clearUser,
         token,
         login,
         logout,

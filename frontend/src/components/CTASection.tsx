@@ -1,7 +1,7 @@
 import React from "react";
 
 const CTASection: React.FC<{ onSignUp: () => void }> = ({ onSignUp }) => (
-    <div className="text-center bg-muted border-border border rounded-3xl p-12 backdrop-blur-sm mb-20 max-w-7xl mx-auto">
+    <div className="text-center bg-muted border-border border  p-12 backdrop-blur-sm mb-20 max-w-7xl mx-auto">
         <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Ready to transform your finances?
         </h3>

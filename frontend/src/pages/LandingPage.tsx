@@ -5,14 +5,14 @@ import FeaturesSection from "../components/FeatureSection";
 import CTASection from "../components/CTASection";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-
-
+import { useNavigate } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignUp = () => {
-    alert('Redirecting to sign up page...');
+    navigate('/signUp')
   };
 
   return (

@@ -8,7 +8,7 @@ const Footer: React.FC = () => (
                 <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
                     <DollarSign className="w-5 h-5 text-secondary-foreground font-bold" />
                 </div>
-                <span className="text-xl font-bold text-foreground">Finance</span>
+                <span className="text-xl font-bold text-foreground">Finley</span>
             </div>
             <div className="flex space-x-8 text-muted-foreground">
                 <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
