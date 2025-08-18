@@ -1,20 +1,16 @@
-import { DollarSign, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import useTheme from '../hooks/useTheme';
+import Logo from './Logo';
 
 
 // Navigation Component
 const Navigation: React.FC<{ onLoginClick: () => void }> = ({ onLoginClick }) => {
   const { theme, toggleTheme } = useTheme();
-  
+
   return (
     <nav className="flex justify-between items-center p-6 max-w-7xl mx-auto border-b border-border backdrop-blur-sm">
-      <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center">
-          <DollarSign className="w-6 h-6 text-secondary-foreground font-bold" />
-        </div>
-        <span className="text-2xl font-bold text-foreground">Finley</span>
-      </div>
-      
+      <Logo />
+
       <div className="flex items-center space-x-4">
         <button
           onClick={toggleTheme}

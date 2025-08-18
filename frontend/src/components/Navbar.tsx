@@ -1,74 +1,76 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import React, { useState } from 'react'
+import Logo from './Logo'
+import Sidebar from './Sidebar';
+import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi'
 
-const Navbar = () => {
-  const { user, logout } = useAuth();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
+const Navbar = ({ activeMenu }: { activeMenu: string }) => {
+  const [openSideMenu, setOpenSideMenu] = useState(false);
+  
+  const toggleMobileMenu = () => {
+    setOpenSideMenu((prev) => !prev);
   };
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link to="/dashboard" className="text-xl font-bold text-blue-600">
-              Finly
-            </Link>
-          </div>
+    <>
+      {/* Main Navbar */}
+      <div className='relative flex items-center gap-5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 py-4 px-4 md:px-8 sticky top-0 z-50 shadow-sm'>
+        
+        {/* Mobile Menu Button */}
+        <div className='md:hidden flex items-center'>
+          <button 
+            onClick={toggleMobileMenu} 
+            className='p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 active:scale-95'
+            aria-label={openSideMenu ? 'Close menu' : 'Open menu'}
+          >
+            <div className='relative w-6 h-6 cursor-pointer'>
+              { openSideMenu ? (
+                <HiOutlineX className={`absolute inset-0 w-6 h-6 text-gray-700 dark:text-gray-300 transition-all `} />
+              ) : (
+                <HiOutlineMenu className={`absolute inset-0 w-6 h-6 text-gray-700 dark:text-gray-300 transition-all  `} />
+              )}
+            </div>
+          </button>
+        </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/dashboard"
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                isActive('/dashboard')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Dashboard
-            </Link>
-            <Link
-              to="/income"
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                isActive('/income')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Income
-            </Link>
-            <Link
-              to="/expense"
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                isActive('/expense')
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Expenses
-            </Link>
-          </div>
+        {/* Logo */}
+        <div className='flex-1 md:flex-initial'>
+          <Logo />
+        </div>
 
-          <div className="flex items-center space-x-4">
-            <span className="text-gray-700">Welcome, {user?.fullName}</span>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-            >
-              Logout
-            </button>
+        {/* Desktop Navigation Items (if you have any) */}
+        <div className='hidden md:flex items-center gap-4 ml-auto'>
+          {/* Add any additional nav items here */}
+          <div className='flex items-center gap-3'>
+            {/* Example: Search, notifications, user menu, etc. */}
           </div>
         </div>
       </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+      {/* Mobile Sidebar Overlay */}
+      {openSideMenu && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className='md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300'
+            onClick={toggleMobileMenu}
+          />
+          
+          {/* Mobile Sidebar */}
+          <div className={`
+            md:hidden fixed left-0 top-[72px] bottom-0 z-50 
+            w-64 bg-white dark:bg-gray-900 
+            shadow-2xl border-r border-gray-200 dark:border-gray-700
+            transform transition-transform duration-300 ease-out
+            ${openSideMenu ? 'translate-x-0' : '-translate-x-full'}
+          `}>
+            <div className='h-full overflow-hidden'>
+              <Sidebar activeMenu={activeMenu} />
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  )
+}
+
+export default Navbar

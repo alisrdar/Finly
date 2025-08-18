@@ -1,29 +1,23 @@
-import React,{useState} from "react";
-import LoginModal from "../components/LoginModal";
+import React from "react";
+// import LoginModal from "../components/LoginModal";
 import HeroSection from "../components/HeroSection";
 import FeaturesSection from "../components/FeatureSection";
 import CTASection from "../components/CTASection";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-
-
+import { useNavigate } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
-  const [showLogin, setShowLogin] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignUp = () => {
-    alert('Redirecting to sign up page...');
+    navigate('/signup');
   };
 
   return (
     <div className="min-h-screen gradient-background transition-colors duration-500">
-      <Navigation onLoginClick={() => setShowLogin(true)} />
-      
-      <LoginModal 
-        show={showLogin} 
-        onClose={() => setShowLogin(false)} 
-        onSignUp={handleSignUp}
-      />
+      <Navigation onLoginClick={() => navigate('/login')} />
 
       <div className="relative">
         <HeroSection onSignUp={handleSignUp} />

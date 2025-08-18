@@ -1,10 +1,13 @@
 import React from 'react'
+import DashboardLayout from '../../layouts/DashboardLayout'
 
 const Income = () => {
   return (
-    <div>
-      Income
-    </div>
+    <DashboardLayout activeMenu='income'>
+      <div>
+        Income
+      </div>
+    </DashboardLayout>
   )
 }
 
