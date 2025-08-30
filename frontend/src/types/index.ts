@@ -84,31 +84,51 @@ export interface ExpenseFormData {
 
 // Dashboard interfaces
 export interface DashboardData {
-  totalIncomeAmount: number;
-  totalExpenseAmount: number;
-  incomeInLast30Days: {
-    total: { total: number }[];
-    transaction: Income[];
+  totalBalance: number;
+  totalIncome: number;
+  TotalExpenses: number;
+
+  last30DaysIncome: {
+    totalAmount: number;
+    transactions: Income[];
+  };
+  last60DaysIncome: {
+    totalAmount: number;
+    transactions: Income[];
+  };
+  last30DaysExpenses: {
+    totalAmount: number;
+    transactions: Expense[];
+  };
+  last60DaysExpenses: {
+    totalAmount: number;
+    transactions: Expense[];
+  };
+
+  recentIncomeTransactions: Income[];
+  recentExpenseTransactions: Expense[];
+  recentTransactions: Transaction[];
+
+  compareIncome_expenses: {
+    last30DaysIncome: number;
+    last30DaysExpenses: number;
+    last60DaysIncome: number;
+    last60DaysExpenses: number;
+  };
+
+  top5ExpenseCategories: {
+    _id: string;
+    totalAmount: number;
+    count: number;
   }[];
-  incomeInLast60Days: {
-    total: { total: number }[];
-    transaction: Income[];
-  }[];
-  expensesLast30Days: {
-    total: { total: number }[];
-    transaction: Expense[];
-  }[];
-  expensesLast60Days: {
-    total: { total: number }[];
-    transaction: Expense[];
-  }[];
-  last5Transactions: Array<Income | Expense>;
-  ExpensesByCategories: {
+
+  expenseByCategory: {
     _id: string;
     totalAmount: number;
     count: number;
   }[];
 }
+
 
 // Transaction type for unified display
 export interface Transaction {

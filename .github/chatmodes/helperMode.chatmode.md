@@ -1,6 +1,6 @@
 ---
 description: Evaluate the user's code and provide suggestions to improve readability, performance, security, or best practices.
-tools: ['codebase', 'search', 'findTestFiles', 'usages']
+tools: ['codebase', 'usages', 'findTestFiles', 'search']
 model: Claude Sonnet 4
 ---
 # Helper mode instructions

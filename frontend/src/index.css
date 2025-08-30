@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
-
 @custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-display: "Poppins";
-  --breakpoint-3xl: 1020px;
-  --color-primary: #875cf5;
+    --font-display: "Poppins";
+    --breakpoint-3xl: 1020px;
+    --color-primary: #875cf5;
 }
 
 @layer base {
@@ -15,56 +15,100 @@
     }
 
     :root {
+        /* Base Colors */
         --background: #fafafa;
         --foreground: #1e293b;
         --card: #ffffff;
+        --card-hover: #f8fafc;
         --primary: #7c3aed;
         --primary-foreground: #fafafa;
+        --primary-hover: #6d28d9;
         --secondary: #fbbf24;
         --secondary-foreground: #1e293b;
+        --secondary-hover: #f59e0b;
         --border: #e2e8f0;
+        --border-hover: #cbd5e1;
         --muted: #f1f5f9;
+        --muted-hover: #e2e8f0;
         --muted-foreground: #64748b;
         --accent: #f8fafc;
         --accent-foreground: #0f172a;
+        --accent-hover: #f1f5f9;
+        
+        /* Additional Hover Colors */
+        --hover-subtle: #f8fafc;
+        --hover-muted: #f1f5f9;
+        --hover-strong: #e2e8f0;
+        --destructive: #ef4444;
+        --destructive-hover: #dc2626;
+        --success: #10b981;
+        --success-hover: #059669;
+        --warning: #f59e0b;
+        --warning-hover: #d97706;
+        --info: #3b82f6;
+        --info-hover: #2563eb;
     }
 
     .dark {
-        --background: #0f172a;
-        --foreground: #ffffff;
-        --card: #1e293b;
+        /* Base Colors */
+        --background: #0a0d1a;
+        --foreground: #e2e8f0;
+        --card: #1a1d2e;
+        --card-hover: #242740;
         --primary: #8b5cf6;
-        --primary-foreground: #e2e8f0;
+        --primary-foreground: #f8fafc;
+        --primary-hover: #7c3aed;
         --secondary: #fcd34d;
         --secondary-foreground: #ffffff;
-        --border: #334155;
+        --secondary-hover: #f59e0b;
+        --border: #2d3748;
+        --border-hover: #374151;
         --muted: #1e293b;
+        --muted-hover: #374151;
         --muted-foreground: #94a3b8;
         --accent: #334155;
-        --accent-foreground: #f8fafc;
+        --accent-foreground: #faf5ff;
+        --accent-hover: #475569;
+        
+        /* Additional Hover Colors */
+        --hover-subtle: #1e293b;
+        --hover-muted: #334155;
+        --hover-strong: #475569;
+        --destructive: #f87171;
+        --destructive-hover: #ef4444;
+        --success: #34d399;
+        --success-hover: #10b981;
+        --warning: #fbbf24;
+        --warning-hover: #f59e0b;
+        --info: #60a5fa;
+        --info-hover: #3b82f6;
     }
 
     * {
         border-color: var(--border);
     }
 
-    /* Single body declaration with all styles */
     body {
         font-family: var(--font-display);
         color: var(--foreground);
         background: var(--background);
         overflow-x: hidden;
-        transition: color 0.3s ease, background-color 0.3s ease; /* Smooth theme transitions */
+        transition: color 0.3s ease, background-color 0.3s ease;
     }
 
-    /* Your custom utility classes */
+    /* Base Utility Classes */
     .bg-background { background-color: var(--background); }
     .bg-card { background-color: var(--card); }
     .bg-primary { background-color: var(--primary); }
     .bg-secondary { background-color: var(--secondary); }
     .bg-muted { background-color: var(--muted); }
     .bg-accent { background-color: var(--accent); }
-    
+    .bg-destructive { background-color: var(--destructive); }
+    .bg-success { background-color: var(--success); }
+    .bg-warning { background-color: var(--warning); }
+    .bg-info { background-color: var(--info); }
+
+    /* Text Colors */
     .text-foreground { color: var(--foreground); }
     .text-primary { color: var(--primary); }
     .text-primary-foreground { color: var(--primary-foreground); }
@@ -72,17 +116,71 @@
     .text-secondary-foreground { color: var(--secondary-foreground); }
     .text-muted-foreground { color: var(--muted-foreground); }
     .text-accent-foreground { color: var(--accent-foreground); }
-    
+    .text-destructive { color: var(--destructive); }
+    .text-success { color: var(--success); }
+    .text-warning { color: var(--warning); }
+    .text-info { color: var(--info); }
+
+    /* Border Colors */
     .border-border { border-color: var(--border); }
-    
-    .hover\:bg-accent:hover { background-color: var(--accent); }
+
+    /* Hover Background Colors */
+    .hover\:bg-card-hover:hover { background-color: var(--card-hover); }
+    .hover\:bg-primary-hover:hover { background-color: var(--primary-hover); }
+    .hover\:bg-secondary-hover:hover { background-color: var(--secondary-hover); }
+    .hover\:bg-muted-hover:hover { background-color: var(--muted-hover); }
+    .hover\:bg-accent-hover:hover { background-color: var(--accent-hover); }
+    .hover\:bg-hover-subtle:hover { background-color: var(--hover-subtle); }
+    .hover\:bg-hover-muted:hover { background-color: var(--hover-muted); }
+    .hover\:bg-hover-strong:hover { background-color: var(--hover-strong); }
+    .hover\:bg-destructive-hover:hover { background-color: var(--destructive-hover); }
+    .hover\:bg-success-hover:hover { background-color: var(--success-hover); }
+    .hover\:bg-warning-hover:hover { background-color: var(--warning-hover); }
+    .hover\:bg-info-hover:hover { background-color: var(--info-hover); }
+
+    /* Hover Border Colors */
+    .hover\:border-border-hover:hover { border-color: var(--border-hover); }
+    .hover\:border-primary-hover:hover { border-color: var(--primary-hover); }
+
+    /* Hover Text Colors */
+    .hover\:text-primary-hover:hover { color: var(--primary-hover); }
     .hover\:text-accent-foreground:hover { color: var(--accent-foreground); }
-    
+
+    /* Gradients */
     .gradient-primary {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
     
     .gradient-background {
         background: linear-gradient(135deg, var(--background), var(--muted));
+    }
+    
+    .gradient-card {
+        background: linear-gradient(135deg, var(--card), var(--accent));
+    }
+
+    /* Interactive Elements */
+    .interactive-card {
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .interactive-card:hover {
+        background-color: var(--card-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .interactive-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+@layer utilities {
+    .card-btn {
+        @apply flex items-center gap-3 font-medium rounded-lg bg-gray-50 dark:bg-gray-600 hover:bg-purple-300 hover:text-white dark:hover:bg-purple-600 text-gray-800 dark:text-gray-200 px-4 py-2 transition cursor-pointer;
     }
 }

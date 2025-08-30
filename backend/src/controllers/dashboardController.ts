@@ -42,7 +42,6 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
-                        { $limit: 5 }
                     ]
 
                 }
@@ -66,7 +65,6 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
-                        { $limit: 5 }
                     ]
                 }
             }
@@ -89,7 +87,6 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
-                        { $limit: 5 }
                     ]
                 }
             }
@@ -111,7 +108,6 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
-                        { $limit: 5 }
                     ]
                 }
             }
