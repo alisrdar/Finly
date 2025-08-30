@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Income } from '../../types'
-import DashButton from '../ui/dashButton'
+import DashButton from '../ui/DashButton'
 import  TransactionInfoCard from '../cards/TransactionInfoCard'
 
 const RecentIncome: React.FC<{
