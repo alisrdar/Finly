@@ -34,7 +34,7 @@
         --accent: #f8fafc;
         --accent-foreground: #0f172a;
         --accent-hover: #f1f5f9;
-        
+
         /* Additional Hover Colors */
         --hover-subtle: #f8fafc;
         --hover-muted: #f1f5f9;
@@ -69,7 +69,7 @@
         --accent: #334155;
         --accent-foreground: #faf5ff;
         --accent-hover: #475569;
-        
+
         /* Additional Hover Colors */
         --hover-subtle: #1e293b;
         --hover-muted: #334155;
@@ -97,64 +97,172 @@
     }
 
     /* Base Utility Classes */
-    .bg-background { background-color: var(--background); }
-    .bg-card { background-color: var(--card); }
-    .bg-primary { background-color: var(--primary); }
-    .bg-secondary { background-color: var(--secondary); }
-    .bg-muted { background-color: var(--muted); }
-    .bg-accent { background-color: var(--accent); }
-    .bg-destructive { background-color: var(--destructive); }
-    .bg-success { background-color: var(--success); }
-    .bg-warning { background-color: var(--warning); }
-    .bg-info { background-color: var(--info); }
+    .bg-background {
+        background-color: var(--background);
+    }
+
+    .bg-card {
+        background-color: var(--card);
+    }
+
+    .bg-primary {
+        background-color: var(--primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--secondary);
+    }
+
+    .bg-muted {
+        background-color: var(--muted);
+    }
+
+    .bg-accent {
+        background-color: var(--accent);
+    }
+
+    .bg-destructive {
+        background-color: var(--destructive);
+    }
+
+    .bg-success {
+        background-color: var(--success);
+    }
+
+    .bg-warning {
+        background-color: var(--warning);
+    }
+
+    .bg-info {
+        background-color: var(--info);
+    }
 
     /* Text Colors */
-    .text-foreground { color: var(--foreground); }
-    .text-primary { color: var(--primary); }
-    .text-primary-foreground { color: var(--primary-foreground); }
-    .text-secondary { color: var(--secondary); }
-    .text-secondary-foreground { color: var(--secondary-foreground); }
-    .text-muted-foreground { color: var(--muted-foreground); }
-    .text-accent-foreground { color: var(--accent-foreground); }
-    .text-destructive { color: var(--destructive); }
-    .text-success { color: var(--success); }
-    .text-warning { color: var(--warning); }
-    .text-info { color: var(--info); }
+    .text-foreground {
+        color: var(--foreground);
+    }
+
+    .text-primary {
+        color: var(--primary);
+    }
+
+    .text-primary-foreground {
+        color: var(--primary-foreground);
+    }
+
+    .text-secondary {
+        color: var(--secondary);
+    }
+
+    .text-secondary-foreground {
+        color: var(--secondary-foreground);
+    }
+
+    .text-muted-foreground {
+        color: var(--muted-foreground);
+    }
+
+    .text-accent-foreground {
+        color: var(--accent-foreground);
+    }
+
+    .text-destructive {
+        color: var(--destructive);
+    }
+
+    .text-success {
+        color: var(--success);
+    }
+
+    .text-warning {
+        color: var(--warning);
+    }
+
+    .text-info {
+        color: var(--info);
+    }
 
     /* Border Colors */
-    .border-border { border-color: var(--border); }
+    .border-border {
+        border-color: var(--border);
+    }
 
     /* Hover Background Colors */
-    .hover\:bg-card-hover:hover { background-color: var(--card-hover); }
-    .hover\:bg-primary-hover:hover { background-color: var(--primary-hover); }
-    .hover\:bg-secondary-hover:hover { background-color: var(--secondary-hover); }
-    .hover\:bg-muted-hover:hover { background-color: var(--muted-hover); }
-    .hover\:bg-accent-hover:hover { background-color: var(--accent-hover); }
-    .hover\:bg-hover-subtle:hover { background-color: var(--hover-subtle); }
-    .hover\:bg-hover-muted:hover { background-color: var(--hover-muted); }
-    .hover\:bg-hover-strong:hover { background-color: var(--hover-strong); }
-    .hover\:bg-destructive-hover:hover { background-color: var(--destructive-hover); }
-    .hover\:bg-success-hover:hover { background-color: var(--success-hover); }
-    .hover\:bg-warning-hover:hover { background-color: var(--warning-hover); }
-    .hover\:bg-info-hover:hover { background-color: var(--info-hover); }
+    .hover\:bg-card-hover:hover {
+        background-color: var(--card-hover);
+    }
+
+    .hover\:bg-primary-hover:hover {
+        background-color: var(--primary-hover);
+    }
+
+    .hover\:bg-secondary-hover:hover {
+        background-color: var(--secondary-hover);
+    }
+
+    .hover\:bg-muted-hover:hover {
+        background-color: var(--muted-hover);
+    }
+
+    .hover\:bg-accent-hover:hover {
+        background-color: var(--accent-hover);
+    }
+
+    .hover\:bg-hover-subtle:hover {
+        background-color: var(--hover-subtle);
+    }
+
+    .hover\:bg-hover-muted:hover {
+        background-color: var(--hover-muted);
+    }
+
+    .hover\:bg-hover-strong:hover {
+        background-color: var(--hover-strong);
+    }
+
+    .hover\:bg-destructive-hover:hover {
+        background-color: var(--destructive-hover);
+    }
+
+    .hover\:bg-success-hover:hover {
+        background-color: var(--success-hover);
+    }
+
+    .hover\:bg-warning-hover:hover {
+        background-color: var(--warning-hover);
+    }
+
+    .hover\:bg-info-hover:hover {
+        background-color: var(--info-hover);
+    }
 
     /* Hover Border Colors */
-    .hover\:border-border-hover:hover { border-color: var(--border-hover); }
-    .hover\:border-primary-hover:hover { border-color: var(--primary-hover); }
+    .hover\:border-border-hover:hover {
+        border-color: var(--border-hover);
+    }
+
+    .hover\:border-primary-hover:hover {
+        border-color: var(--primary-hover);
+    }
 
     /* Hover Text Colors */
-    .hover\:text-primary-hover:hover { color: var(--primary-hover); }
-    .hover\:text-accent-foreground:hover { color: var(--accent-foreground); }
+    .hover\:text-primary-hover:hover {
+        color: var(--primary-hover);
+    }
+
+    .hover\:text-accent-foreground:hover {
+        color: var(--accent-foreground);
+    }
 
     /* Gradients */
     .gradient-primary {
         background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
-    
+
     .gradient-background {
         background: linear-gradient(135deg, var(--background), var(--muted));
     }
-    
+
     .gradient-card {
         background: linear-gradient(135deg, var(--card), var(--accent));
     }
@@ -165,22 +273,22 @@
         border: 1px solid var(--border);
         transition: all 0.2s ease-in-out;
     }
-    
+
     .interactive-card:hover {
         background-color: var(--card-hover);
         border-color: var(--border-hover);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
-    .dark .interactive-card:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
 }
 
 
 @layer utilities {
     .card-btn {
-        @apply flex items-center gap-3 font-medium rounded-lg bg-gray-50 dark:bg-gray-600 hover:bg-purple-300 hover:text-white dark:hover:bg-purple-600 text-gray-800 dark:text-gray-200 px-4 py-2 transition cursor-pointer;
+        @apply flex items-center gap-3 text-sm font-medium rounded-lg bg-gray-50 dark:bg-gray-600 hover:bg-purple-300 hover:text-white dark:hover:bg-purple-600 text-gray-800 dark:text-gray-200 px-4 py-2 transition cursor-pointer;
+    }
+
+    .add-btn {
+        @apply flex items-center gap-2 text-sm font-medium rounded-lg bg-green-50 dark:bg-green-900/50 hover:bg-green-400 hover:text-white dark:hover:bg-green-800 text-green-800 dark:text-green-200 px-4 py-2 transition cursor-pointer;
     }
 }

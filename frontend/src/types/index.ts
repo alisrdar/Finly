@@ -129,7 +129,6 @@ export interface DashboardData {
   }[];
 }
 
-
 // Transaction type for unified display
 export interface Transaction {
   _id: string;

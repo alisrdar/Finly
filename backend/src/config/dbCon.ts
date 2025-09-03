@@ -1,12 +1,11 @@
-import { log } from "console";
 import mongoose from "mongoose";
 
-const connectDB = async () =>{
-    try{
+const connectDB = async () => {
+    try {
         await mongoose.connect(process.env.MONGO_URI!);
-        console.log("Connection Successful");
+        console.log("Connected to MongoDB");
     } catch (err) {
-        console.error("Error Connecting to mongodb",err);
+        console.error("Error Connecting to MongoDB", err);
         process.exit(1);
     }
 }

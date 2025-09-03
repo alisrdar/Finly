@@ -65,6 +65,7 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
+                        
                     ]
                 }
             }
@@ -87,6 +88,7 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
+                        
                     ]
                 }
             }
@@ -108,6 +110,7 @@ export const getDashboardData = async (req: Request, res: Response) => {
                     }],
                     transaction: [
                         { $sort: { date: -1 } },
+                        
                     ]
                 }
             }

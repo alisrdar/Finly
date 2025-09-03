@@ -1,7 +1,8 @@
 import React from 'react'
 import type { Income } from '../../types'
-import DashButton from '../ui/DashButton'
+// import DashButton from '../ui/DashButton'
 import  TransactionInfoCard from '../cards/TransactionInfoCard'
+import CardWrapper from '../cards/CardWrapper'
 
 const RecentIncome: React.FC<{
     income: Income[],
@@ -9,13 +10,11 @@ const RecentIncome: React.FC<{
     
 }> = ({ income, onSeeMore }) => {
     return (
-        <div className='bg-card px-6 p-4 border rounded-lg shadow-md hover:shadow-sm transition-all duration-300 ease-in-out'>
-            <div className="flex justify-between items-center">
-                <h5 className='font-semibold text-lg text-foreground'>
-                    Recent Income
-                </h5>
-                <DashButton btnText='See All' onClick={onSeeMore} />
-            </div>
+        <CardWrapper
+            title="Recent Income"
+            onBtnClick={onSeeMore}
+            btnText='See All'
+        >
             <div className='space-y-1 my-4 pt-4'>
                 {income.map((inc) => (
                     <TransactionInfoCard 
@@ -28,7 +27,7 @@ const RecentIncome: React.FC<{
                     />
                 ))}
             </div>
-        </div>
+        </CardWrapper>
     )
 }
 

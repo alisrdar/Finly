@@ -1,7 +1,8 @@
 import React from 'react'
 import TransactionInfoCard from '../cards/TransactionInfoCard'
 import type { Expense } from '../../types'
-import DashButton from '../ui/dashButton'
+// import DashButton from '../ui/DashButton'
+import CardWrapper from '../cards/CardWrapper'
 
 
 const RecentExpense: React.FC<{
@@ -9,14 +10,13 @@ const RecentExpense: React.FC<{
     onSeeMore: () => void
 }> =
     ({ expenses, onSeeMore }) => {
+        // console.log(expenses);
         return (
-            <div className="bg-card px-6 border p-4 rounded-lg shadow-md">
-                <div className='flex justify-between items-center'>
-                    <h2 className='font-semibold text-xl text-foreground'>
-                        Recent Expenses
-                    </h2>
-                    <DashButton btnText='See More' onClick={onSeeMore} />
-                </div>
+            <CardWrapper
+                title="Recent Expenses"
+                onBtnClick={onSeeMore}
+                btnText='See All'
+            >
                 <div className='space-y-1 my-2 pt-4'>
                     {expenses.map((exp) => (
                         <TransactionInfoCard
@@ -30,7 +30,7 @@ const RecentExpense: React.FC<{
                         />
                     ))}
                 </div>
-            </div>
+            </CardWrapper>
         )
     }
 

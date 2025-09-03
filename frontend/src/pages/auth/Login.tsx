@@ -67,7 +67,8 @@ const Login = () => {
             </div>
 
             {/* Form */}
-            <form className="space-y-6 w-full sm:w-[96%]" onSubmit={handleSubmit}>
+            <form className="space-y-6 w-full sm:w-[96%]"
+              onSubmit={handleSubmit}>
               {/* Email */}
               <div>
                 <input
@@ -119,7 +120,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-2 px-4 rounded-3xl cursor-pointer gradient-primary text-primary-foreground font-bold shadow hover:scale-105 transition-all disabled:opacity-70 text-md " 
+                className="w-full py-2 px-4 rounded-3xl cursor-pointer gradient-primary text-primary-foreground font-bold shadow hover:scale-105 transition-all disabled:opacity-70 text-md "
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </button>
