@@ -43,7 +43,7 @@ const Navbar = ({ activeMenu, onClick }: { activeMenu: string, onClick: () => vo
         </button>
 
         {/* Desktop Navigation Items */}
-        <div className='hidden md:flex items-center gap-4 ml-auto'>
+        <div className=' md:flex items-center gap-4 ml-auto'>
           {/* Add any additional nav items here */}
           <div className='flex items-center gap-3'>
             <Themetoggler />

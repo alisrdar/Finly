@@ -7,7 +7,7 @@ interface EmojiPickerPopProps {
     onSelect: (icon: string) => void;
 }
 
-const EmojiPickerPop: React.FC<EmojiPickerPopProps> = ({ icon, onSelect }) => {
+const EmojiPickerPop: React.FC<EmojiPickerPopProps> = ({ icon , onSelect }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -23,7 +23,7 @@ const EmojiPickerPop: React.FC<EmojiPickerPopProps> = ({ icon, onSelect }) => {
                         <img
                             src={icon}
                             alt="Selected Emoji"
-                            className="w-10 h-10 "
+                            className="w-10 h-10"
                         />
                     ) : (
                         <LuImage className="w-8 h-8 text-gray-400" />

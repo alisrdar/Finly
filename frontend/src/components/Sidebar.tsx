@@ -36,7 +36,7 @@ const Sidebar = ({ activeMenu }: { activeMenu: string }) => {
         onClick={toggleDesktop}
         aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         className={`
-          hidden lg:flex
+          hidden md:flex
           fixed top-24 z-50
           items-center justify-center
           w-8 h-8

@@ -40,7 +40,7 @@ const AddIncomeForm: React.FC<AddIncomeFormProps> = ({ onAddIncome, onCancel }) 
           control={control}
           render={({ field }) => (
             <EmojiPicker
-              icon={field.value}
+              icon={field.value }
               onSelect={(icon) => field.onChange(icon)}
             />
           )}

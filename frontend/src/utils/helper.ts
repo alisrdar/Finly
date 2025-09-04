@@ -29,6 +29,17 @@ export const transformIncomesForChart = (incomes: Income[]): BarChartDataItem[] 
         fullDate: income.date
     }));
 };
+export const transformIncomesForTable = (incomes: Income[]) => {
+    return incomes.map(income => ({
+        id: income._id,
+        name: income.title,
+        amount: income.amount,
+        category: income.category,
+        icon: income.icon,
+        date: new Date(income.date).toLocaleDateString(),
+        fullDate: income.date
+    }));
+};
 
 export const formatCurrency = (amount: number, locale = 'en-US', currency = 'USD') => {
     return new Intl.NumberFormat(locale, {
