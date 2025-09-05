@@ -6,7 +6,7 @@ const CTASection: React.FC<{ onSignUp: () => void }> = ({ onSignUp }) => (
             Ready to transform your finances?
         </h3>
         <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground">
-            Join thousands of users who have already taken control of their financial future. Start your journey today.
+            Join Hundred of users who have already taken control of their financial future. Start your journey today.
         </p>
         <button
             onClick={onSignUp}
