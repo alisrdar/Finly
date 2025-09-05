@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import DashboardLayout from '../../layouts/DashboardLayout'
 import type { Expense } from '../../types'
 import ExpenseOverview from '../../components/expense/ExpenseOverview'

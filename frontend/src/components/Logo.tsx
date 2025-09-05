@@ -1,4 +1,3 @@
-import React from 'react'
 // import { DollarSign } from 'lucide-react'
 import {FaDollarSign} from 'react-icons/fa'
 
