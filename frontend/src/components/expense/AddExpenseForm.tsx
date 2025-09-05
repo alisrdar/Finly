@@ -67,12 +67,13 @@ const AddExpenseForm: React.FC<{
                             type="button"
                             onClick={onCancel}
                             className="
-              w-full sm:w-auto px-6 py-2
-              border border-border
-              text-muted-foreground hover:text-foreground
-              bg-transparent hover:bg-hover-muted
-              rounded-lg transition-colors cursor-pointer
-            "
+                                w-full sm:w-auto px-6 py-2
+                                border border-border cursor-pointer
+                                text-muted-foreground hover:text-foreground
+                                hover:bg-slate-300/60 hover:text-white
+                                bg-transparent hover:bg-hover-muted
+                                transition-all ease-in-out duration-300
+                                rounded-lg font-medium"
                         >
                             Cancel
                         </button>
@@ -81,13 +82,14 @@ const AddExpenseForm: React.FC<{
                         type="submit"
                         disabled={isSubmitting}
                         className="
-            w-full sm:flex-1
-            bg-primary hover:bg-primary-hover
-            text-primary-foreground font-medium
-            py-2 px-6 rounded-lg
-            transition-all duration-200
-            disabled:opacity-50 disabled:cursor-not-allowed
-          "
+                            w-full sm:flex-1
+                            bg-primary hover:bg-primary/60
+                            text-primary-foreground font-medium
+                            py-2 px-6 rounded-lg
+                            transition-all ease-in-out duration-300
+                            cursor-pointer
+                            disabled:opacity-50 disabled:cursor-not-allowed
+                        "
                     >
                         {isSubmitting ? 'Adding...' : 'Add Expense'}
                     </button>

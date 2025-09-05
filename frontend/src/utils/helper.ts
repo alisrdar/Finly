@@ -144,14 +144,19 @@ export const transformExpensesForChart = (
 export const transformExpensesForBarChart = (
     expenses: Expense[]
 ): BarChartDataItem[] => {
-    expenses.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    return expenses.map(expense => ({
-        name: new Date(expense.date).toLocaleDateString("default", { day: "2-digit", month: "short" }),
-        amount: expense.amount,
-        category: expense.category,
-        date: expense.date,
-        fullDate: new Date(expense.date)
-    }));
+    // Don't mutate the original array - create a copy first
+    const sortedExpenses = [...expenses].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    
+    return sortedExpenses.map(expense => {
+        const date = new Date(expense.date);
+        return {
+            name: date.toLocaleDateString("default", { day: "2-digit", month: "short" }),
+            amount: expense.amount,
+            category: expense.category,
+            date: expense.date,
+            fullDate: date
+        };
+    });
 }
 export const transformIncomesForTable = (incomes: Income[]) => {
     return incomes.map(income => ({

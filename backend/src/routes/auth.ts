@@ -12,6 +12,6 @@ authRoutes.post('/login',loginUser);
 
 authRoutes.get('/getUser', protect, getUser);
 
-authRoutes.post('/upload-image', upload.single('image'), UploadImage );
+authRoutes.post('/upload-image', protect, upload.single('image'), UploadImage );
 
 export default authRoutes

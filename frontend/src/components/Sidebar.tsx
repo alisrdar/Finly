@@ -76,8 +76,9 @@ const Sidebar = ({ activeMenu }: { activeMenu: string }) => {
             <img
               src={user?.profileImageUrl || ''}
               alt="Profile Image"
-              className={`rounded-full transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 object-cover ${
                 collapsed ? 'w-8 h-8' : 'w-16 h-16'
+    
               }`}
             />
           ) : (

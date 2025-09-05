@@ -28,7 +28,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             }
             setIsLoading(false);
         };
-
         checkAuth();
     }, [token]);
 
@@ -49,13 +48,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setToken(null);
     };
 
+    // useEffect(() => {
+    //     const storedToken = localStorage.getItem('token');
+    //     const storedUser = localStorage.getItem('user');
+
+    //     if(storedToken && storedUser) {
+    //         setToken(storedToken);
+    //         setUser(JSON.parse(storedUser));
+    //     }
+    //     setIsLoading
+    // } [user]);
+
     const value = {
         user,
         token,
         login,
         logout,
         isLoading,
-        clearUser
+        clearUser,
+        setUser
     };
 
     return (

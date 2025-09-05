@@ -32,20 +32,13 @@ api.interceptors.response.use(
         return response;
     },
     (err) => {
-        // Handling common errors globaly
-        if (err.response) {
-            if (err.response?.status === 401) {
-                localStorage.removeItem('token');
-                window.location.href = '/login';
-            } else if (err.response?.status === 500) {
-                console.error('Server error:', err);
-                // alert('An unexpected error occurred. Please try again later.');
-            }
-        } else if (err.code === 'ECONNABORTED') {
-            console.error('Request timeout:', err);
-            // alert('Request timed out. Please try again later.');
-        }
+    if (err.response?.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+      console.log('Unauthorized! Redirecting to login.');
     }
+    return Promise.reject(err); // critical
+  }
 )
 
 export default api;

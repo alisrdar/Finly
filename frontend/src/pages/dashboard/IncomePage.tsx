@@ -126,7 +126,10 @@ const IncomePage = () => {
           onClose={() => setModalOpen(false)}
         >
           <div className=''>
-            <AddIncomeForm onAddIncome={handleAddIncome} />
+            <AddIncomeForm
+              onAddIncome={handleAddIncome}
+              onCancel={() => setModalOpen(false)}
+            />
           </div>
         </Modal>
 

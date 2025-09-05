@@ -48,7 +48,7 @@ const IncomeOverView: React.FC<IncomeOverViewProps> = ({ transactions, onAddInco
 
         <CustomBarChart
           data={chartData}
-          colors={['#4caf50', '#2196f3', '#ff9800', '#f44336', '#9c27b0']}
+          // colors={['#4caf50', '#2196f3', '#ff9800', '#f44336', '#9c27b0']}
           legendKey='category'
           dataKey='amount'
           showLegend={true}

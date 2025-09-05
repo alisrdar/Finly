@@ -2,8 +2,10 @@ import {
     LuLayoutDashboard,
     LuHandCoins,
     LuWalletMinimal,
+    LuUser,
     LuLogOut
 } from 'react-icons/lu'
+
 
 export const SIDEBAR_LINKS = [
     {
@@ -26,6 +28,12 @@ export const SIDEBAR_LINKS = [
     },
     {
         id: 4,
+        icon: LuUser,
+        label: 'profile',
+        path: '/profile'
+    },
+    {
+        id: 5,
         icon: LuLogOut,
         label: 'Logout',
         path: '/logout'

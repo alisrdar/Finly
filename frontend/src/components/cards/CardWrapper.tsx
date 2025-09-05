@@ -24,7 +24,7 @@ const CardWrapper: React.FC<{
         const flexReverse = btnText === 'See All' ? 'flex-row-reverse' : '';
 
         return (
-            <div className="bg-card p-4 sm:p-6 rounded-lg shadow-md border border-border hover:shadow-sm transition-all duration-300 ease-in-out dark:hover:scale-[1.02] dark:sm:hover:scale-101"
+            <div className="bg-card p-4 sm:p-6 rounded-lg shadow-md border border-border dark:shadow-slate-800/50 hover:shadow-sm transition-all duration-300 ease-in-out"
             onClick={(e) => e.stopPropagation()}> 
 
                 {/* Header Section - Always Horizontal */}

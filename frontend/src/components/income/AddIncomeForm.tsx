@@ -67,10 +67,12 @@ const AddIncomeForm: React.FC<AddIncomeFormProps> = ({ onAddIncome, onCancel }) 
             onClick={onCancel}
             className="
               w-full sm:w-auto px-6 py-2
-              border border-border
+              border border-border cursor-pointer
               text-muted-foreground hover:text-foreground
+              hover:bg-slate-300/60 hover:text-white
               bg-transparent hover:bg-hover-muted
-              rounded-lg transition-colors
+              transition-all ease-in-out duration-300
+              rounded-lg font-medium
             "
           >
             Cancel
@@ -81,10 +83,11 @@ const AddIncomeForm: React.FC<AddIncomeFormProps> = ({ onAddIncome, onCancel }) 
           disabled={isSubmitting}
           className="
             w-full sm:flex-1
-            bg-primary hover:bg-primary-hover
+            bg-primary hover:bg-primary/60
             text-primary-foreground font-medium
             py-2 px-6 rounded-lg
-            transition-all duration-200
+            transition-all ease-in-out duration-300
+            cursor-pointer
             disabled:opacity-50 disabled:cursor-not-allowed
           "
         >

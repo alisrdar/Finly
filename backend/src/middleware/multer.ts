@@ -1,14 +1,26 @@
-import multer from 'multer'
+import multer from 'multer';
+import { Request } from 'express';
 
 const storage = multer.memoryStorage();
 
-const fileFilter = (req:any, file:Express.Multer.File, cb:any) => {
-  const allowdTypes = ['image/jpeg', 'image/png', 'image/jpg' ];
-  if (allowdTypes.includes(file.mimetype)) {
+const fileFilter = (
+  req: Request, 
+  file: Express.Multer.File, 
+  cb: multer.FileFilterCallback
+) => {
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg']; // Fixed typo
+  
+  if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Only .jpeg, .jpg and .png formats are allowed'), false);
+    cb(null, false);
   }
-}
+};
 
-export const upload = multer({storage, fileFilter})
+export const upload = multer({
+  storage,
+  fileFilter,
+  limits: {
+    fileSize: 5 * 1024 * 1024, // 5MB limit
+  }
+});

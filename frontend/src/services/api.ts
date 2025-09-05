@@ -1,9 +1,9 @@
 import api from '../utils/api';
 import { API_ENDPOINTS } from '../utils/apiPaths';
-import type { 
-  AuthResponse, 
-  LoginData, 
-  RegisterData, 
+import type {
+  AuthResponse,
+  LoginData,
+  RegisterData,
   DashboardData,
   Income,
   Expense,
@@ -29,12 +29,17 @@ export const authService = {
   },
 
   uploadImage: async (formData: FormData) => {
-    const response = await api.post(API_ENDPOINTS.AUTH.UPLOAD_IMAGE, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    return response.data;
+    try {
+      const response = await api.post(API_ENDPOINTS.AUTH.UPLOAD_IMAGE, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Upload image error:', error);
+      throw error;
+    }
   },
 };
 

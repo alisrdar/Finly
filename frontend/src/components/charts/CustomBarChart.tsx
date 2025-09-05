@@ -37,7 +37,13 @@ const CustomBarChart: React.FC<CustomBarChartProps> = ({
   data,
   dataKey = 'amount',
   xAxisKey = 'name',
-  colors = ['#8b5cf6', '#ef4444', '#f97316', '#10b981', '#3b82f6'],
+  colors = [
+    '#6d28d9', // muted violet (rich but not neon)
+    '#b91c1c', // muted crimson red
+    '#b45309', // earthy amber/brown-orange
+    '#047857', // balanced teal-green
+    '#1d4ed8'  // medium deep blue
+  ],
   height = 300,
   showLegend = true,
   legendKey = 'category',
@@ -53,14 +59,22 @@ const CustomBarChart: React.FC<CustomBarChartProps> = ({
     );
   }
 
-  const getBarColor = (index: number) => colors[index % colors.length];
+  const getBarColor = (index: number) => {
+    const color = colors[index % colors.length];
+    console.log(color); // ADD THIS
+    return color;
+  };
 
   const legendData = showLegend
     ? data.map((item, index) => ({
-        name: String(item[legendKey] || item.name),
-        color: getBarColor(index),
-      }))
+      name: String(item[legendKey] || item.name),
+      color: getBarColor(index),
+
+    }))
     : [];
+
+  console.log(data);
+
 
   return (
     <div className={className}>
@@ -73,7 +87,7 @@ const CustomBarChart: React.FC<CustomBarChartProps> = ({
           <XAxis
             dataKey={xAxisKey}
             tick={{ fontSize: 12 }}
-            tickCount={6} 
+            tickCount={6}
             // tickFormatter={(value) => `${value}`}
             // className="text-muted-foreground"
             stroke={'#555'}
@@ -91,7 +105,10 @@ const CustomBarChart: React.FC<CustomBarChartProps> = ({
           <Bar dataKey={dataKey} radius={[4, 4, 0, 0]}>
             {data.map((_, index) => (
               <Cell key={`cell-${index}`} fill={getBarColor(index)} />
-            ))}
+
+
+            ))
+            }`
           </Bar>
         </BarChart>
       </ResponsiveContainer>

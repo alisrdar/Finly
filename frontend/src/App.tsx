@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import Home from './pages/dashboard/Home';
 import ExpensePage from './pages/dashboard/ExpensePage';
 import IncomePage from './pages/dashboard/IncomePage';
+import ProfilePage from './pages/dashboard/ProfilePage';
 import Login from './pages/auth/Login';
 import SignUp from './pages/auth/SignUp';
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/dashboard' element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path='/expense' element={<ProtectedRoute><ExpensePage /></ProtectedRoute>} />
             <Route path='/income' element={<ProtectedRoute><IncomePage /></ProtectedRoute>} />
+            <Route path='/profile' element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           </Routes>
         </Router>
         <Toaster position="top-right" />
