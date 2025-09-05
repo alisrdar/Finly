@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { DashboardData } from '../../types';
 import CustomBarChart from '../charts/CustomBarChart';
-import { transformExpensesForChart } from '../../utils/helper';
+import { transformExpensesForBarChart } from '../../utils/helper';
 import ChartWrapper from '../charts/ChartWrapper';
 
 interface Last30DaysExpensesChartProps {
@@ -9,19 +9,21 @@ interface Last30DaysExpensesChartProps {
 }
 
 const Last30DaysExpensesChart: React.FC<Last30DaysExpensesChartProps> = ({ data }) => {
+    const chartData = useMemo(
+        () => transformExpensesForBarChart(data?.transactions ?? []),
+        [data?.transactions]
+    );
+
     if (!data?.transactions) {
         return (
             <ChartWrapper title='Last 30 Days Expenses'>
                 <CustomBarChart
-                    data={[]}
+                    data={chartData}
                     emptyMessage='No expense data available'
                 />
             </ChartWrapper>
         )
     }
-
-    const chartData = transformExpensesForChart(data.transactions);
-    // console.log(chartData);
 
     return (
         <ChartWrapper title='Last 30 Days Expenses'>

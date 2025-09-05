@@ -23,14 +23,16 @@ export const addExpense = async (req: Request, res: Response) => {
             user: userId,
             amount,
             category,
-            date: new Date(date),
+            date: date ? new Date(date) : undefined,
             icon,
             note,
             paymentMethod,
             location,
         })
+        const payload = newExpense.toObject() as any; 
+        payload.date = newExpense.date.toISOString(); // ISO for frontend
         await newExpense.save();
-        res.status(201).json({ message: "Expense added successfully!", expense: newExpense });
+        return res.status(201).json(payload);
     } catch (err) {
         res.status(500).json({
             message: "Server Error",
@@ -73,7 +75,7 @@ export const deleteExpense = async (req: Request, res: Response) => {
             return res.status(403).json({ message: "Unauthorized!" })
         }
         // Deleting Expense
-        await Income.findByIdAndDelete(expenseId);
+        await Expense.findByIdAndDelete(expenseId);
         res.status(200).json({
             message: "Expense deleted Successfully!"
         })

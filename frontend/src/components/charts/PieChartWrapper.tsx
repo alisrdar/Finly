@@ -7,6 +7,7 @@ import ChartWrapper from "./ChartWrapper";
 interface ChartDataItem {
     name?: string;
     value?: number;
+    category?: string;
 }
 
 interface PieChartWrapperProps {
@@ -19,6 +20,7 @@ interface PieChartWrapperProps {
     height?: number;
     showLegend?: boolean;
     className?: string;
+    legendKey?: keyof ChartDataItem;
 }
 
 const PieChartWrapper: React.FC<PieChartWrapperProps> = ({
@@ -30,9 +32,16 @@ const PieChartWrapper: React.FC<PieChartWrapperProps> = ({
     outerRadius = 120,
     height = 300,
     showLegend = true,
-    className = ""
+    className = "",
+    legendKey = 'category',
 }) => {
     const hasData = data.some(item => (item.value ?? 0) > 0);
+
+    const legendData = showLegend
+    ? data.map((item) => ({
+        name: String(item[legendKey] || item.name),
+      }))
+    : [];
 
     if (!hasData) {
         return (
@@ -87,7 +96,7 @@ const PieChartWrapper: React.FC<PieChartWrapperProps> = ({
             {/* Legend */}
             {showLegend && (
                 <ChartLegend
-                    data={data.map((entry, index) => ({
+                    data={legendData.map((entry, index) => ({
                         name: entry.name ?? "",
                         color: colors[index % colors.length],
                     }))}

@@ -40,7 +40,7 @@ const TransactionInfoCard: React.FC<TransactionInfoCardProps> = ({
                         bg-accent dark:bg-slate-800/15
                         shadow-md shadow-primary/10 dark:shadow-none
                         hover:shadow-xl dark:hover:shadow-sm hover:shadow-primary/10
-                        hover:bg-card-hover dark:hover:bg-slate-800/70
+                        hover:bg-card-hover 
                         hover:-translate-y-0.5
                         transition-all duration-300 ease-in-out'>
 

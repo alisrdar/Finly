@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChartLegend: React.FC<{ data: Array<{ name: string; color: string }> }> = ({ data }) => {
     return (
-        <div className='flex flex-wrap justify-center space-x-6 mt-4'>
+        <div className='flex flex-wrap justify-center gap-2 space-x-6 mt-4'>
             {data.map((item, index) => (
                 <div
                     key={index}

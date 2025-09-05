@@ -3,36 +3,34 @@ import Income, { InfIncome } from "../models/Income.js";
 import xlsx from 'xlsx'
 
 export const addIncome = async (req: Request, res: Response) => {
-    const id = await req.user?.id;
-    try {
-        const { title, amount, category, date, icon } = req.body;
+  try {
+    const userId = (req.user as any)?.id;
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
-        if (!amount || !category || !title) {
-            return res.status(400).json({ message: "All fields are required!" })
-        }
-
-        const newIncome = await Income.create({
-            title,
-            user: id,
-            amount,
-            category,
-            date: new Date(date),
-            icon
-        })
-        await newIncome.save(); // redundant
-
-        res.status(201).json({
-            message: "Income added successfully",
-            newIncome
-        })
-    } catch (err) {
-        res.status(500).json({
-            message: "Server Error",
-            err
-        })
+    const { title, amount, category, date, icon } = req.body;
+    if (title == null || amount == null || category == null) {
+      return res.status(400).json({ message: "All fields are required!" });
     }
 
-}
+    const created = await Income.create({
+      title,
+      user: userId,
+      amount,
+      category,
+      date: date ? new Date(date) : undefined, // falls back to schema default
+      icon,
+    });
+
+    const payload = created.toObject() as any; // <-- quiet TS
+    payload.date = created.date.toISOString(); // ISO for frontend
+
+    return res.status(201).json(payload); // <-- return the object directly
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: "Server Error" });
+  }
+};
+
 export const getAllIncome = async (req: Request, res: Response) => {
 
     try {

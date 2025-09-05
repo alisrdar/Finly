@@ -13,6 +13,7 @@ const RecentIncomeChart: React.FC<RecentIncomeChartProps> = ({ data, totalIncome
   const top5sorted = data?.transactions.sort((a, b) => b.amount - a.amount).slice(0, 5).map((income) => ({
     name: income.title,
     value: income.amount,
+    category: income.category,
   })) ?? [];
 
   const otherTotal = data?.transactions.slice(5).reduce((sum, income)=> sum+income.amount, 0) ?? 0;
@@ -37,6 +38,7 @@ const RecentIncomeChart: React.FC<RecentIncomeChartProps> = ({ data, totalIncome
       height={300}
       outerRadius={130}
       innerRadius={90}
+      legendKey='name'
     />
   )
 }

@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import type { SubmitHandler } from 'react-hook-form';
 import type { IncomeFormData, Income } from '../../types'
 import { IncomeFields } from '../../utils/helper';
-import EmojiPicker from '../EmojiPicker';
+import EmojiPicker from '../EmojiPickerPop';
 
 interface AddIncomeFormProps {
   onAddIncome: (income: Income) => void;
@@ -40,7 +40,7 @@ const AddIncomeForm: React.FC<AddIncomeFormProps> = ({ onAddIncome, onCancel }) 
           control={control}
           render={({ field }) => (
             <EmojiPicker
-              icon={field.value }
+              icon={ field.value }
               onSelect={(icon) => field.onChange(icon)}
             />
           )}

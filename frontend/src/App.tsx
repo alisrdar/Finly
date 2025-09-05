@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
 import Home from './pages/dashboard/Home';
-import Expense from './pages/dashboard/Expense';
-import Income from './pages/dashboard/Income';
+import ExpensePage from './pages/dashboard/ExpensePage';
+import IncomePage from './pages/dashboard/IncomePage';
 import Login from './pages/auth/Login';
 import SignUp from './pages/auth/SignUp';
 
@@ -28,8 +28,8 @@ function App() {
             
             {/* Dashboard & Protected Pages */}
             <Route path='/dashboard' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path='/expense' element={<ProtectedRoute><Expense /></ProtectedRoute>} />
-            <Route path='/income' element={<ProtectedRoute><Income /></ProtectedRoute>} />
+            <Route path='/expense' element={<ProtectedRoute><ExpensePage /></ProtectedRoute>} />
+            <Route path='/income' element={<ProtectedRoute><IncomePage /></ProtectedRoute>} />
           </Routes>
         </Router>
         <Toaster position="top-right" />

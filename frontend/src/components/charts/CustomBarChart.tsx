@@ -73,8 +73,10 @@ const CustomBarChart: React.FC<CustomBarChartProps> = ({
           <XAxis
             dataKey={xAxisKey}
             tick={{ fontSize: 12 }}
-            className="text-muted-foreground"
-            stroke="none"
+            tickCount={6} 
+            // tickFormatter={(value) => `${value}`}
+            // className="text-muted-foreground"
+            stroke={'#555'}
           />
           <YAxis
             tick={{ fontSize: 12, fill: '#555' }}

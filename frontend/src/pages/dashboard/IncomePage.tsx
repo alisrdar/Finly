@@ -11,7 +11,7 @@ import toast from 'react-hot-toast'
 import IncomeTable from '../../components/income/IncomeTable'
 import DeleteAlert from '../../components/DeleteAlert'
 
-const Income = () => {
+const IncomePage = () => {
   const [incomeData, setIncomeData] = useState<Income[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,13 +28,17 @@ const Income = () => {
     }
   };
 
-
-
   // Add Income
   const handleAddIncome = async (income: Income) => {
     try {
       const newIncome = await incomeService.addIncome(income);
-      setIncomeData((prev) => [newIncome, ...prev]);
+      const normalizedIncome: Income = {
+        ...newIncome,
+        amount: Number(newIncome.amount),
+        date: new Date(newIncome.date).toISOString(), // ensure it's a valid date string
+      };
+
+      setIncomeData((prev) => [normalizedIncome, ...prev]);
       setModalOpen(false);
       toast.success('Income added successfully');
     } catch (error) {
@@ -88,7 +92,7 @@ const Income = () => {
 
   useEffect(() => {
     fetchIncomeData();
-  }, [incomeData]);
+  }, []);
 
 
 
@@ -148,4 +152,4 @@ const Income = () => {
   )
 }
 
-export default Income
+export default IncomePage
