@@ -1,6 +1,5 @@
 import {  useEffect, useState } from 'react'
 import DashboardLayout from '../../layouts/DashboardLayout'
-// import type { User } from '../../types'
 import { authService } from '../../services/api'
 import { useAuth } from '../../hooks/useAuth'
 import { LuMail, LuPen, LuLoader } from 'react-icons/lu'
@@ -87,7 +86,7 @@ const ProfilePage = () => {
                                         src={user.profileImageUrl || '/avatar_m-face.jpg'}
                                         alt='Profile'
                                         className='w-24 h-24 rounded-full object-cover border-4 border-primary/20
-                                                 group-hover:border-primary/40 transition-all duration-300'
+                                        group-hover:border-primary/40 transition-all duration-300'
                                     />
 
                                     {/* Loading overlay */}
