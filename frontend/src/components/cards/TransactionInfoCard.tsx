@@ -38,9 +38,8 @@ const TransactionInfoCard: React.FC<TransactionInfoCardProps> = ({
         <div className='group relative 
                         p-3 md:p-4 lg:p-5 mx-1 rounded-2xl
                         bg-card
-                        shadow-sm hover:shadow-lg dark:hover:shadow-2xl
-                        hover:border-primary/20
-                        hover:-translate-y-1 hover:scale-[1.01]
+                        shadow-sm hover:shadow-lg dark:hover:shadow-lg
+                        hover:border-primary/20 hover:scale-[1.02] active:scale-100
                         transition-all duration-300 ease-out
                         backdrop-blur-sm'>
 
@@ -102,11 +101,11 @@ const TransactionInfoCard: React.FC<TransactionInfoCardProps> = ({
                     </div>
 
                     {/* Amount Badge */}
-                    <div className={`px-2.5 py-1.5 rounded-lg font-bold text-xs
+                    <div className={`px-2.5 py-1.5 rounded-md font-bold text-xs
                         flex items-center gap-1.5 flex-shrink-0
                         ${type.toLowerCase() === 'income'
-                            ? 'text-green-700 bg-gradient-to-br from-green-50 to-green-100 dark:text-green-300 dark:from-green-900/40 dark:to-green-800/40'
-                            : 'text-red-700 bg-gradient-to-br from-red-50 to-red-100 dark:text-red-300 dark:from-red-900/40 dark:to-red-800/40'
+                            ? 'text-green-700 bg-gradient-to-br from-green-50 to-green-50 dark:text-green-300 dark:from-green-900/20 dark:to-green-800/10'
+                            : 'text-red-700 bg-gradient-to-br from-red-50 to-red-100 dark:text-red-300 dark:from-red-900/20 dark:to-red-800/30'
                         }`}>
                         <span className='whitespace-nowrap'>
                             {type.toLowerCase() === 'income' ? '+' : '-'}${Number(amount).toLocaleString()}
@@ -195,14 +194,14 @@ const TransactionInfoCard: React.FC<TransactionInfoCardProps> = ({
                         flex items-center gap-2 flex-shrink-0
                         ring-1 transition-all duration-300 group-hover:scale-105
                         ${type.toLowerCase() === 'income'
-                            ? `text-green-700 bg-gradient-to-br from-green-50 to-green-100 
-                               ring-green-200/50 group-hover:ring-green-300/70
-                               dark:text-green-300 dark:from-green-900/40 dark:to-green-800/40 
-                               dark:ring-green-700/30 dark:group-hover:ring-green-600/50`
-                            : `text-red-700 bg-gradient-to-br from-red-50 to-red-100 
-                               ring-red-200/50 group-hover:ring-red-300/70
-                               dark:text-red-300 dark:from-red-900/40 dark:to-red-800/40 
-                               dark:ring-red-700/30 dark:group-hover:ring-red-600/50`
+                            ? `text-green-700 bg-gradient-to-br from-green-50 to-green-50 
+                               ring-green-200/40 group-hover:ring-green-300/70
+                               dark:text-green-300 dark:from-green-900/10 dark:to-green-800/15 
+                               dark:ring-green-700/10 dark:group-hover:ring-green-600/50`
+                            : `text-red-700 bg-gradient-to-br from-red-50 to-red-50 
+                               ring-red-200/30 group-hover:ring-red-300/70
+                               dark:text-red-300 dark:from-red-900/10 dark:to-red-800/15 
+                               dark:ring-red-700/10 dark:group-hover:ring-red-600/30`
                         }`}>
 
                         <span className='font-bold tracking-wide whitespace-nowrap'>
