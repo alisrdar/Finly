@@ -60,13 +60,13 @@ const Footer: React.FC = () => {
                     {/* Bottom section */}
                     <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center">
                         <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-                            © 2025 Finly V1. All rights reserved. Built with ❤️ for better financial management.
+                            © 2025 Finly V1· Built with ❤️ by Muhammad Ali · All rights reserved.
                         </div>
-                        <div className="flex items-center space-x-6 text-sm">
+                        {/* <div className="flex items-center space-x-6 text-sm">
                             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Status</a>
                             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">API</a>
                             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Changelog</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
